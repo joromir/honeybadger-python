@@ -112,6 +112,10 @@ class DjangoHoneybadgerMiddleware(MiddlewareMixin):
         return None
 
     def process_exception(self, request, exception):
+        for key in honeybadger.config.http_headers_filters:
+            if key in request.environ.keys():
+                request.environ[key] = '[FILTERED]'
+
         honeybadger.notify(exception)
         clear_request()
         return None
