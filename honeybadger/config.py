@@ -13,6 +13,7 @@ class Configuration(object):
         ('hostname', str),
         ('endpoint', str),
         ('params_filters', list),
+        ('http_headers_filters', list),
         ('force_report_data', bool),
     )
 
@@ -23,6 +24,7 @@ class Configuration(object):
         self.hostname = socket.gethostname()
         self.endpoint = 'https://api.honeybadger.io'
         self.params_filters = ['password', 'password_confirmation', 'credit_card']
+        self.http_headers_filters = ['HTTP_COOKIE', 'CSRF_COOKIE']
         self.force_report_data = False
 
         self.set_12factor_config()
@@ -42,7 +44,6 @@ class Configuration(object):
                     val = bool(val)
             except:
                 pass
-
 
             setattr(self, option, val)
 

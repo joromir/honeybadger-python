@@ -180,6 +180,7 @@ The following options are available to you:
 | hostname | `str` | The hostname of the current server. | `"badger01"` | `HONEYBADGER_HOSTNAME` |
 | endpoint | `str` | `"https://api.honeybadger.io"` | `"https://honeybadger.example.com/"` | `HONEYBADGER_ENDPOINT` |
 | params_filters | `list` | `['password', 'password_confirmation', 'credit_card']` | `['super', 'secret', 'keys']` | `HONEYBADGER_PARAMS_FILTERS` |
+| http_headers_filters | `list` | `['HTTP_COOKIE', 'CSRF_COOKIE']` | `['super', 'secret', 'headers']` | `HONEYBADGER_HTTP_HEADERS_FILTERS` |
 | force_report_data | `bool` | `False` | `True` | `HONEYBADGER_FORCE_REPORT_DATA` |
 
 ## Public Methods
