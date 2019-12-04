@@ -109,10 +109,6 @@ class DjangoHoneybadgerMiddleware(MiddlewareMixin):
     def process_request(self, request):
         set_request(request)
 
-        for key in honeybadger.config.http_headers_filters:
-            if key in request.environ.keys():
-                request.environ[key] = '[FILTERED]'
-
         honeybadger.begin_request(request)
         return None
 
